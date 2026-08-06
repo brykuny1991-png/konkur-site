@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Конкур — конный клуб: занятия конкуром и выездкой</title>
+<meta name="description" content="Занятия верховой ездой для начинающих и спортсменов. Работа с лошадьми, продажа лошадей, обучение на коновода и тренера.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;700;800&family=Spectral:ital,wght@0,300;0,400;0,600;1,300&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pine:#0E2018;
+  --pine-2:#163324;
+  --pine-3:#1F4632;
+  --sand:#E4D5B7;
+  --sand-dim:#B9A987;
+  --chestnut:#A8552E;
+  --brass:#C8A24A;
+  --paper:#F5F2EA;
+  --ink:#121C16;
+
+  --display:"Saira Condensed",system-ui,sans-serif;
+  --body:"Spectral",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+
+  --gut:clamp(20px,5vw,64px);
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-weight:300;
+  font-size:clamp(16px,1.05vw,18px);
+  line-height:1.65;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gut)}
+
+.eyebrow{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--chestnut);
+  margin:0 0 14px;
+}
+.section-dark .eyebrow{color:var(--brass)}
+
+.rule{
+  height:11px;
+  background-image:repeating-linear-gradient(to right,currentColor 0 1px,transparent 1px 9px);
+  opacity:.35;
+  margin:0 0 30px;
+}
+
+.site-head{
+  position:sticky;top:0;z-index:20;
+  background:rgba(14,32,24,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(228,213,183,.16);
+}
+.site-head__in{
+  display:flex;align-items:center;gap:24px;
+  min-height:62px;
+}
+.brand{
+  font-family:var(--display);font-weight:800;
+  font-size:22px;letter-spacing:.16em;
+  color:var(--sand);text-decoration:none;
+  margin-right:auto;
+}
+.nav{display:flex;gap:22px;flex-wrap:wrap}
+.nav a{
+  font-family:var(--display);font-weight:500;
+  font-size:15px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--sand-dim);text-decoration:none;
+  padding:4px 0;border-bottom:1px solid transparent;
+}
+.nav a:hover,.nav a:focus-visible{color:var(--sand);border-bottom-color:var(--brass)}
+.head-mail{
+  font-family:var(--mono);font-size:13px;color:var(--sand-dim);text-decoration:none;
+}
+.head-mail:hover{color:var(--brass)}
+
+.hero{
+  background:var(--pine);
+  color:var(--sand);
+  position:relative;
+  overflow:hidden;
+}
+.hero__photo{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,var(--pine) 8%,rgba(14,32,24,.72) 48%,rgba(14,32,24,.45) 100%),
+    url("https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvc2s2NDMwLWltYWdlLWt3dng5NHhuLmpwZw.jpg") center/cover no-repeat;
+}
+.hero__in{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:clamp(28px,5vw,64px);
+  align-items:center;
+  padding-block:clamp(56px,9vw,104px);
+}
+.hero h1{
+  font-family:var(--display);
+  font-weight:800;
+  font-size:clamp(46px,8.4vw,104px);
+  line-height:.92;
+  letter-spacing:-.005em;
+  text-transform:uppercase;
+  margin:0 0 22px;
+  color:#fff;
+}
+.hero h1 em{
+  display:block;font-style:normal;color:var(--brass);
+}
+.hero__lede{
+  font-size:clamp(17px,1.5vw,21px);
+  max-width:34ch;margin:0 0 30px;color:#EDE6D5;
+}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{
+  display:inline-block;
+  font-family:var(--display);font-weight:700;
+  font-size:16px;letter-spacing:.1em;text-transform:uppercase;
+  padding:15px 30px;
+  text-decoration:none;
+  border:1px solid var(--brass);
+  background:var(--brass);color:var(--pine);
+  transition:background .18s ease,color .18s ease;
+}
+.btn:hover,.btn:focus-visible{background:transparent;color:var(--brass)}
+.btn--ghost{background:transparent;color:var(--sand);border-color:rgba(228,213,183,.45)}
+.btn--ghost:hover,.btn--ghost:focus-visible{background:var(--sand);color:var(--pine);border-color:var(--sand)}
+
+.ladder{
+  border:1px solid rgba(228,213,183,.22);
+  background:rgba(9,22,16,.55);
+  padding:clamp(20px,2.6vw,30px);
+}
+.ladder__cap{
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--sand-dim);margin:0 0 20px;
+}
+.rung{
+  display:grid;
+  grid-template-columns:64px 1fr;
+  gap:14px;align-items:center;
+  padding:9px 0;
+  border-top:1px solid rgba(228,213,183,.13);
+}
+.rung:first-of-type{border-top:0}
+.rung__cm{
+  font-family:var(--mono);font-size:15px;color:var(--brass);
+  text-align:right;letter-spacing:.02em;
+}
+.rung__cm span{font-size:10px;color:var(--sand-dim);display:block;letter-spacing:.16em}
+.rung__track{position:relative}
+.rung__bar{
+  height:26px;
+  background:linear-gradient(90deg,var(--pine-3),var(--chestnut));
+  transform-origin:left center;
+  animation:grow .9s cubic-bezier(.22,.7,.24,1) backwards;
+}
+.rung:nth-of-type(1) .rung__bar{width:52%;animation-delay:.05s}
+.rung:nth-of-type(2) .rung__bar{width:66%;animation-delay:.17s}
+.rung:nth-of-type(3) .rung__bar{width:82%;animation-delay:.29s}
+.rung:nth-of-type(4) .rung__bar{width:100%;animation-delay:.41s}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.rung__name{
+  position:absolute;inset:0;
+  display:flex;align-items:center;gap:10px;
+  padding-left:12px;
+  font-family:var(--display);font-weight:700;
+  font-size:15px;letter-spacing:.08em;text-transform:uppercase;
+  color:#fff;
+}
+.rung__name b{font-weight:500;font-size:12px;color:rgba(255,255,255,.72);letter-spacing:.04em}
+.ladder__note{
+  font-family:var(--mono);font-size:11px;line-height:1.6;
+  color:var(--sand-dim);margin:18px 0 0;
+}
+
+section{padding-block:clamp(52px,7vw,92px)}
+.section-dark{background:var(--pine-2);color:var(--sand)}
+.section-sand{background:var(--sand)}
+h2{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(30px,4.4vw,54px);
+  line-height:1;text-transform:uppercase;letter-spacing:-.005em;
+  margin:0 0 20px;
+}
+.lede{font-size:clamp(17px,1.4vw,20px);max-width:60ch;margin:0 0 40px}
+.section-dark .lede{color:#E4DCC9}
+
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px)}
+.about p{margin:0 0 18px;max-width:52ch}
+
+.dirs{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:1px;background:rgba(18,28,22,.16)}
+.dir{
+  background:var(--sand);
+  padding:clamp(22px,2.4vw,30px);
+  display:flex;flex-direction:column;gap:9px;
+  text-decoration:none;color:inherit;
+  transition:background .18s ease;
+}
+.dir:hover,.dir:focus-visible{background:#EFE4CC}
+.dir h3{
+  font-family:var(--display);font-weight:700;font-size:21px;
+  text-transform:uppercase;letter-spacing:.05em;margin:0;
+}
+.dir p{margin:0;font-size:15.5px;line-height:1.55}
+.dir__go{
+  margin-top:auto;font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--chestnut);
+}
+
+.band{background:var(--chestnut);color:#fff}
+.band__in{display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between}
+.band h2{margin:0 0 10px;color:#fff}
+.band p{margin:0;max-width:46ch;color:#FBEFE7}
+.price-tag{
+  font-family:var(--mono);font-size:clamp(34px,5vw,60px);
+  line-height:1;color:#fff;white-space:nowrap;
+}
+.price-tag span{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#F3D9C9;margin-top:8px}
+
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:clamp(20px,2.6vw,34px)}
+.person{border-top:2px solid var(--brass);padding-top:20px}
+.person h3{
+  font-family:var(--display);font-weight:700;font-size:23px;
+  text-transform:uppercase;letter-spacing:.04em;line-height:1.08;margin:0 0 6px;
+}
+.person__role{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--brass);margin:0 0 14px}
+.person p{margin:0;font-size:15.5px;line-height:1.6;color:#E1D9C6}
+
+.rent{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:clamp(18px,2.4vw,28px)}
+.plan{border:1px solid rgba(18,28,22,.22);padding:clamp(22px,2.4vw,30px);display:flex;flex-direction:column}
+.plan--wide{border-color:var(--chestnut);box-shadow:inset 0 0 0 1px var(--chestnut)}
+.plan h3{font-family:var(--display);font-weight:700;font-size:21px;text-transform:uppercase;letter-spacing:.05em;margin:0 0 12px}
+.plan__price{font-family:var(--mono);font-size:26px;margin:0 0 18px;color:var(--chestnut)}
+.plan__price span{font-size:12px;color:#5C6159;letter-spacing:.06em}
+.plan ul{list-style:none;margin:0 0 22px;padding:0;font-size:15.5px}
+.plan li{padding:7px 0 7px 20px;position:relative;border-top:1px solid rgba(18,28,22,.1)}
+.plan li:first-child{border-top:0}
+.plan li::before{content:"";position:absolute;left:0;top:16px;width:9px;height:1px;background:var(--chestnut)}
+.plan li.unknown{color:#7A6A4E;font-style:italic}
+.plan .btn{margin-top:auto;align-self:flex-start;font-size:14px;padding:12px 22px}
+
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(26px,4vw,56px);align-items:start}
+.facts{font-family:var(--mono);font-size:15px;line-height:2;margin:0}
+.facts dt{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sand-dim);margin-top:16px}
+.facts dd{margin:0;color:#fff}
+.facts dd a{color:var(--brass)}
+.pending{color:var(--sand-dim);font-style:italic}
+
+.site-foot{background:var(--pine);color:var(--sand-dim);padding-block:38px;font-size:14px}
+.site-foot__in{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between}
+.site-foot a{color:var(--brass)}
+
+.draft{
+  background:#12261C;color:var(--sand-dim);
+  font-family:var(--mono);font-size:12.5px;line-height:1.7;
+  padding:14px 0;border-bottom:1px solid rgba(228,213,183,.14);
+}
+.draft b{color:var(--brass);font-weight:500}
+
+@media (max-width:860px){
+  .hero__in,.about,.contact{grid-template-columns:1fr}
+  .hero__photo{background-position:60% center}
+  .nav{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap site-head__in">
+    <a class="brand" href="#top">КОНКУР</a>
+    <nav class="nav">
+      <a href="#napravleniya">Занятия</a>
+      <a href="#trenery">Тренеры</a>
+      <a href="#arenda">Аренда</a>
+      <a href="#kontakty">Контакты</a>
+    </nav>
+    <a class="head-mail" href="mailto:info@konkur.pro">info@konkur.pro</a>
+  </div>
+</header>
+
+<div class="draft">
+  <div class="wrap">
+    <b>Черновик.</b> Демонстрационная копия вёрстки. Название клуба, телефон и адрес
+    ещё не переданы заказчиком — они помечены на странице как «уточняется».
+    Фотография — свободная лицензия CC0, временная.
+  </div>
+</div>
+
+<main id="top">
+
+  <section class="hero" style="padding-block:0">
+    <div class="hero__photo" aria-hidden="true"></div>
+    <div class="wrap hero__in">
+      <div>
+        <p class="eyebrow">Конкур · выездка · работа с лошадьми</p>
+        <h1>От первой посадки<em>до маршрута</em></h1>
+        <p class="hero__lede">
+          Занятия для тех, кто ни разу не сидел в седле, и для спортсменов,
+          которым нужно подняться по высоте.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="#kontakty">Записаться на занятие</a>
+          <a class="btn btn--ghost" href="#napravleniya">Что у нас есть</a>
+        </div>
+      </div>
+
+      <div class="ladder">
+        <p class="ladder__cap">Высота маршрутов, наши лошади</p>
+
+        <div class="rung">
+          <div class="rung__cm">100<span>см</span></div>
+          <div class="rung__track">
+            <div class="rung__bar"></div>
+            <div class="rung__name">Суздаль <b>мерин, 16 лет</b></div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="rung__cm">110<span>см</span></div>
+          <div class="rung__track">
+            <div class="rung__bar"></div>
+            <div class="rung__name">Инфинити <b>кобыла, 12 лет</b></div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="rung__cm">120<span>см</span></div>
+          <div class="rung__track">
+            <div class="rung__bar"></div>
+            <div class="rung__name">Ньютон <b>жеребец, 6 лет</b></div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="rung__cm">130<span>см</span></div>
+          <div class="rung__track">
+            <div class="rung__bar"></div>
+            <div class="rung__name">Канада <b>в работе 3 года</b></div>
+          </div>
+        </div>
+
+        <p class="ladder__note">
+          Высота — то, чем здесь меряют прогресс. Суздаль и Инфинити возят
+          учеников, Ньютона и Канаду поставили с нуля.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">О клубе</p>
+      <div class="rule" style="color:var(--chestnut)"></div>
+      <div class="about">
+        <div>
+          <h2>Учим ездить<br>и работаем с лошадьми</h2>
+        </div>
+        <div>
+          <p>
+            Мы занимаемся конкуром и выездкой. Учим с нуля — тех, кто ни разу не сидел
+            в седле. Работаем с теми, кто вернулся к лошадям после перерыва или боится
+            прыгать. Поднимаем по высоте опытных спортсменов.
+          </p>
+          <p>
+            Параллельно ведём работу с лошадьми: заездка молодняка, постановка базы,
+            напрыгивание, восстановление и введение в тренинг.
+          </p>
+          <p>
+            Учим профессиям — коновода и тренера, с возможным трудоустройством.
+            Помогаем подобрать и продать спортивную лошадь.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sand" id="napravleniya">
+    <div class="wrap">
+      <p class="eyebrow">Направления</p>
+      <h2>Чем мы занимаемся</h2>
+      <p class="lede">Шесть направлений — от первого занятия в седле до профессии тренера.</p>
+    </div>
+    <div class="wrap">
+      <div class="dirs">
+        <a class="dir" href="#kontakty">
+          <h3>Занятия на лошадях</h3>
+          <p>Лошади под любой уровень всадника, трое тренеров, разовая тренировка и абонементы.</p>
+          <span class="dir__go">Записаться →</span>
+        </a>
+        <a class="dir" href="#kontakty">
+          <h3>Работа с лошадьми</h3>
+          <p>Заездка, постановка базы, напрыгивание, восстановление и введение в тренинг.</p>
+          <span class="dir__go">Обсудить →</span>
+        </a>
+        <a class="dir" href="#kontakty">
+          <h3>Продажа лошадей</h3>
+          <p>Подбор и продажа спортивных лошадей. Поможем и купить, и продать.</p>
+          <span class="dir__go">Оставить заявку →</span>
+        </a>
+        <a class="dir" href="#kontakty">
+          <h3>Обучение на коновода</h3>
+          <p>С нуля до уверенного коновода за неделю. 45 000 ₽, шесть дней, трудоустройство возможно.</p>
+          <span class="dir__go">Записаться →</span>
+        </a>
+        <a class="dir" href="#kontakty">
+          <h3>Обучение на тренера</h3>
+          <p>Профессия тренера по конкуру. Программа и условия уточняются.</p>
+          <span class="dir__go">Узнать →</span>
+        </a>
+        <a class="dir" href="#kontakty">
+          <h3>База знаний</h3>
+          <p>Статьи для тех, кто только собирается на первое занятие.</p>
+          <span class="dir__go">Скоро →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap band__in">
+      <div>
+        <h2>Начать можно<br>с одного занятия</h2>
+        <p>
+          Приехать, поездить верхом, познакомиться с лошадьми и тренерами,
+          задать все вопросы. Без обязательств.
+        </p>
+      </div>
+      <div class="price-tag">5 000 ₽<span>разовая тренировка</span></div>
+    </div>
+  </section>
+
+  <section class="section-dark" id="trenery">
+    <div class="wrap">
+      <p class="eyebrow">Кто учит</p>
+      <h2>Тренеры</h2>
+      <p class="lede">Трое тренеров с разным подходом — от мягкого для новичков до работы на результат.</p>
+      <div class="people">
+        <article class="person">
+          <h3>Валентина Вениаминовна Файбисович</h3>
+          <p class="person__role">Конкур · 1 взрослый разряд</p>
+          <p>
+            Действующий спортсмен, призёр всероссийских соревнований. Чуткая, спокойная
+            и рассудительная. Поможет разобраться со страхами, подкорректирует посадку,
+            поднимет по высоте. Подготовила много спортсменов с нуля до маршрутов 120 см.
+          </p>
+        </article>
+        <article class="person">
+          <h3>Виктория Ермакова</h3>
+          <p class="person__role">Конкур и выездка · 2 взрослый разряд</p>
+          <p>
+            Действующий спортсмен. Внимательная к мелочам. Отлично подходит начинающим
+            и всадникам со страхами: поможет побороть страх, исправить ошибки в посадке
+            и управлении. Обучила всадников с нуля до маршрутов 100 см.
+          </p>
+        </article>
+        <article class="person">
+          <h3>Алексей Сергеевич Пузин</h3>
+          <p class="person__role">Конкур · КМС</p>
+          <p>
+            Действующий спортсмен. Спокойный, уравновешенный. Подойдёт опытным
+            всадникам, которые хотят подняться по высоте.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="arenda">
+    <div class="wrap">
+      <p class="eyebrow">Аренда</p>
+      <h2>Своя лошадь<br>без покупки лошади</h2>
+      <p class="lede">
+        Аренда — это близкое общение с лошадью: не только ездить, но и проводить
+        с ней время. Позволяет выступать на соревнованиях и выезжать в поля.
+        График обсуждается индивидуально с каждым.
+      </p>
+      <div class="rent">
+        <div class="plan">
+          <h3>Треть аренды</h3>
+          <p class="plan__price">50 000 ₽ <span>/ месяц</span></p>
+          <ul>
+            <li>2 посещения в неделю</li>
+            <li>Выступления на соревнованиях</li>
+            <li>Выезды в поля</li>
+          </ul>
+          <a class="btn" href="#kontakty">Оставить заявку</a>
+        </div>
+        <div class="plan">
+          <h3>Половина аренды</h3>
+          <p class="plan__price">65 000 ₽ <span>/ месяц</span></p>
+          <ul>
+            <li class="unknown">Количество посещений уточняется</li>
+            <li>Выступления на соревнованиях</li>
+            <li>Выезды в поля</li>
+          </ul>
+          <a class="btn" href="#kontakty">Оставить заявку</a>
+        </div>
+        <div class="plan plan--wide">
+          <h3>Полная аренда</h3>
+          <p class="plan__price">120 000 ₽ <span>/ месяц</span></p>
+          <ul>
+            <li>6 посещений в неделю</li>
+            <li>Выступления на соревнованиях</li>
+            <li>Выезды в поля</li>
+            <li>Максимум времени с лошадью</li>
+          </ul>
+          <a class="btn" href="#kontakty">Оставить заявку</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark" id="kontakty">
+    <div class="wrap">
+      <p class="eyebrow">Связаться</p>
+      <div class="contact">
+        <div>
+          <h2>Приезжайте<br>посмотреть</h2>
+          <p class="lede">
+            Напишите — свяжемся удобным для вас способом: звонок, WhatsApp,
+            Telegram, СМС или почта. Первое занятие можно взять разовым.
+          </p>
+          <a class="btn" href="mailto:info@konkur.pro">Написать на почту</a>
+        </div>
+        <dl class="facts">
+          <dt>Почта</dt>
+          <dd><a href="mailto:info@konkur.pro">info@konkur.pro</a></dd>
+          <dt>Телефон</dt>
+          <dd class="pending">уточняется</dd>
+          <dt>Адрес конюшни</dt>
+          <dd class="pending">уточняется</dd>
+          <dt>Как добраться</dt>
+          <dd class="pending">уточняется</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap site-foot__in">
+    <div>Конкур · конный клуб. Занятия, работа с лошадьми, обучение профессиям.</div>
+    <div>Фото: <a href="https://openverse.org/">Openverse</a>, лицензия CC0</div>
+  </div>
+</footer>
+
+</body>
+</html>
